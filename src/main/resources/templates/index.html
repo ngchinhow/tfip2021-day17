@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get weather for a city</title>
+</head>
+<body>
+    <form action="#" th:action="@{/weather}" method="get">
+        <label for="city">Enter the name of a city</label>
+        <input type="text" th:name="city" id="city">
+        <button type="submit">Get weather</button>
+    </form>
+</body>
+</html>

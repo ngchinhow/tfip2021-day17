@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get weather for a city</title>
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <table>
+                    <header>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Country Code</td>
+                        <td>Timezone (in Seconds)</td>
+                        <td>Latitude</td>
+                        <td>Longitude</td>
+                    </header>
+                    <tr>
+                        <td data-th-text="${city.id}"></td>
+                        <td data-th-text="${city.name}"></td>
+                        <td data-th-text="${city.code}"></td>
+                        <td data-th-text="${city.timezone}"></td>
+                        <td data-th-text="${city.lat}"></td>
+                        <td data-th-text="${city.lon}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row" data-th-each="weather: ${city.weathers}">
+            <div class="column">
+                <img th:src="${weather.iconUrl}" alt="weather icon">
+            </div>
+            <div class="column">
+                <table>
+                    <td>ID</td>
+                    <td>Main</td>
+                    <td>Description</td>
+                    <td>Temperature</td>
+                    <td>Feels Like</td>
+                    <td>Humidity (%)</td>
+                    <tr data-th-each="weather: ${city.weathers}">
+                        <td data-th-text="${weather.id}"></td>
+                        <td data-th-text="${weather.main}"></td>
+                        <td data-th-text="${weather.description}"></td>
+                        <td data-th-text="${weather.temp}"></td>
+                        <td data-th-text="${weather.feelsLike}"></td>
+                        <td data-th-text="${weather.humidity}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>  
+    </div>
+</body>
+</html>
